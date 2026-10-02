@@ -1,24 +1,4 @@
 from career_data import careers
-# name = input("enter your name ").title()
-# education = input("enter your education ")
-# interests = input("enter your interests: ").lower().split(",")
-# print(name)
-# print(education)
-# """if interest == 'coding':
-#     career = "sofware devlopment"
-# elif interest == 'design':
-#     career = 'ui/ux designer'
-# elif interest == 'business':
-#     career = 'business analyst' 
-# else:
-#     career = 'not suitable career is found'
-# print("recommended career: " , career)"""
-# """-------------Dictionary------------"""
-
-# """career = careers.get(interest , " no career is suitable")
-# print("recommended career: " , career)"""
-
-# """________________for """
 def get_student_data():
     name = input("Enter your name: ").title()
     education = input("Enter your education: ")
