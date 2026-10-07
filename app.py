@@ -1,3 +1,18 @@
+from flask import Flask, render_template, request
+app = Flask(__name__)
+@app.route("/")
+def home():
+    return render_template("index.html")
+@app.route("/recommend", methods=["POST"])
+def recommend():
+    name = request.form["name"]
+    education = request.form["education"]
+    interests = request.form["interests"].lower().split(",")
+    results = recommend_careers(interests)
+
+
+    return render_template("result.html", results=results)
+from recommendation import recommend_careers
 from career_data import careers
 def get_student_data():
     name = input("Enter your name: ").title()
@@ -5,22 +20,7 @@ def get_student_data():
     interests = input("Enter your interests: ").lower().split(",")
 
     return name, education, interests
-name, education, interests = get_student_data()
-def recommend_careers(interests):
-    results = []
-
-    for interest in interests:
-        interest = interest.strip()
-
-        career = careers.get(interest, "no career found")
-
-        if career != "no career found":
-            results.append(career)
-
-    return results
-
-
-results = recommend_careers(interests)
+# name, education, interests = get_student_data()
 
 print("\nRecommended Careers:")
 
@@ -35,4 +35,6 @@ def display_results(results):
         print("Roadmap:")
         for step in career["roadmap"]:
             print("-", step)
-display_results(results)            
+# display_results(results)            
+if __name__ == "__main__":
+    app.run(debug=True)

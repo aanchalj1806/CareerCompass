@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CareerCompass</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+ <div class="container">
+
+    <h1>CareerCompass</h1>
+    <p>Find the right career path for you.</p>
+    <form action="/recommend" method="POST">
+
+    <label>Name:</label>
+    <input type="text" name="name">
+
+    <br><br>
+
+    <label>Education:</label>
+    <input type="text" name="education">
+    <br><br>
+
+    <label>Interests:</label>
+    <input type="text" name="interests">
+
+    <br><br>
+
+    <button>Get Career Recommendation</button>
+
+</form>
+</div>
+</body>
+</html>
